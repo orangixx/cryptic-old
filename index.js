@@ -5,6 +5,7 @@ const { join } = require("path");
 const { token, prefix } = require("./config.json")
 client.commands = new Discord.Collection();
 let xp = require("./xp.json");
+require("dotenv").config();
 
 const DBL = require("dblapi.js");
 const dbl = new DBL(process.env.DBL, client);
