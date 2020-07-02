@@ -31,8 +31,8 @@ module.exports = {
 
     let deleteAmount;
 
-    if (parseInt(args[0]) > 100) {
-      deleteAmount = 100;
+    if (parseInt(args[0]) > 1000) {
+      deleteAmount = 1000;
     } else {
       deleteAmount = parseInt(args[0]);
     }
