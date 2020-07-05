@@ -3,7 +3,7 @@ module.exports = {
   name: "poll",
   description: "Create a simple yes or no poll",
   category: "fun",
-  run: async (bot, message, args) => {
+  run: async (client, message, args) => {
     if (!message.member.permissions.has("ADMINISTRATOR"))
       return message.channel.send(
         `You do not have admin, ${message.author.username}`
@@ -24,7 +24,7 @@ module.exports = {
       .setDescription(`${question}`)
       .setFooter(`${message.author.username} created this poll.`)
       .setColor(`RANDOM`);
-    let msg = await bot.channels.cache.get(channel.id).send(Embed);
+    let msg = await client.channels.cache.get(channel.id).send(Embed);
     await msg.react("👍");
     await msg.react("👎");
   }

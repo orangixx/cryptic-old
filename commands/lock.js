@@ -9,7 +9,7 @@ module.exports = {
 
     if (!message.member.hasPermission("MANAGE_CHANNELS")) {
       return message.reply(
-        "You don't have permissions to lock channels. You need the `MANAGE_CHANNELS` permission."
+        "You don't have permission to lock channels. You need the `MANAGE_CHANNELS` permission."
       );
       // .then(m => m.delete({ timeout: 5000, reason: "Delete Error Message" }));
     }

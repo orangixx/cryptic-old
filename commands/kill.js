@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const immune = ["405497010385321995"];
 
-module.exports.run = async (bot, message, args) => {
+module.exports.run = async (client, message, args) => {
   var fs = require("fs");
 
   var user2 = message.mentions.members.last();

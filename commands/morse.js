@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (bot, message, args, i) => {
+module.exports.run = async (client, message, args, i) => {
   var fs = require("fs");
   if (!args[1]) { return; }
   fs.readFile("./e/cmds.json", "utf8", function(err, contents) {

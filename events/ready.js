@@ -15,9 +15,10 @@ module.exports = async client => {
   client.user.setPresence({
     status: "online",
     activity: {
-      //name: `${client.guilds.cache.size} servers | ${prefix}help`,
-        name: `${prefix}help`,
-        type: "WATCHING"
+      //name: `${prefix}help | ${client.guilds.cache.size} servers | ${client.users.cache.size} users`,
+      //name: `${prefix}help | ${client.users.cache.size} users`,
+      name: `${client.guilds.cache.size} servers | ${prefix}help`,
+      type: "WATCHING"
     }
   });
 };

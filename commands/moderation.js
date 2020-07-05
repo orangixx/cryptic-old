@@ -1,11 +1,11 @@
 const discord = require("discord.js");
 
 exports.run = async (client, message, args) => {
-  if (!message.member.hasPermission("MANAGE_ROLES")) {
+/*  if (!message.member.hasPermission("MANAGE_ROLES")) {
     return message.channel.send(
       `**${message.author.username}**, You do not have perms to use this command`
     );
-  }
+  }*/
 
   let owner = client.users.cache.get("");
   let boticon = client.users.displayAvatarURL;

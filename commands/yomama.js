@@ -1,13 +1,13 @@
 const Discord = require("discord.js");
 const fetch = require("snekfetch");
 
-module.exports.run = async (bot, msg, args) => {
+module.exports.run = async (client, message, args) => {
   var fs = require("fs");
 
   fs.readFile("./e/cmds.json", "utf8", function(err, contents) {
     var c = JSON.parse(contents);
     if (c.fun === "0") {
-      msg.channel.send();
+      message.channel.send();
     } else {
       cc();
     }
@@ -17,7 +17,7 @@ module.exports.run = async (bot, msg, args) => {
       const yomama = new Discord.MessageEmbed()
         .setColor("BLUE")
         .setDescription(joke.body);
-      msg.channel.send({ embed: yomama });
+      message.channel.send({ embed: yomama });
     });
   }
 };

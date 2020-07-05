@@ -18,7 +18,7 @@ exports.run = async (client, message, args) => {
     .addField(":busts_in_silhouette: Action Commands", "``c!action``")
     .addField(":ok: Text Commands", "``c!text``")
     .addField(":pushpin: Utility Commands", "``c!utility``")
-    //.addField(":moneybag: Economy Commands (WIP)", "``c!economy``")
+    //.addField(":moneybag: Economy Commands", "``c!economy``")
     .addField(":musical_note: Music Commands", "``c!music``")
     .addField(":dog: Animal Commands", "``c!animal``")
     .addField(":smirk: NSFW Commands", "``c!nsfw``")

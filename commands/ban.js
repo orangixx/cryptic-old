@@ -1,45 +1,27 @@
-const discord = require("discord.js");
-
+const Discord = require("discord.js");
 module.exports = {
   name: "ban",
-  category: "moderation",
-  description: "Ban anyone with one shot whithout knowing anyone xD",
-  usage: "ban <@user>",
-  run: async (client, message, args) => {
-    if (!message.member.hasPermission("BAN_MEMBERS")) {
-      return message.channel.send(
-        `**${message.author.username}**, You do not have perms to ban someone`
-      );
+  execute(client, message, args) {
+    let member = message.mentions.members.first();
+    if (!member)
+      return message.channel.send("You need to mention a member to ban");
+    let reason;
+    let arg = message.content.split(" ").slice(2);
+    if (arg.length == 0) {
+      reason = "No reason specified";
+    } else {
+      reason = arg.join(" ");
     }
+    if (!message.member.hasPermission("BAN_MEMBERS"))
+      return message.channel.send("You do not have perms to use this command.");
+    if (!message.guild.member(member).bannable)
+      return message.channel.send("I cant ban that user");
 
-    if (!message.guild.me.hasPermission("BAN_MEMBERS")) {
-      return message.channel.send(
-        `**${message.author.username}**, I am do not have perms to ban someone`
-      );
-    }
-
-    const target = message.mentions.members.first();
-
-    if (!target) {
-      return message.channel.send(
-        `**${message.author.username}**, Please mention the person who you want to ban.`
-      );
-    }
-
-    if (target.id === message.author.id) {
-      return message.channel.send(
-        `**${message.author.username}**, You can not ban yourself!`
-      );
-    }
-
-    let embed = new discord.MessageEmbed()
-      .setTitle("Action : Ban")
-      .setDescription(`Banned ${target}`)
-      .setColor("#ff2050")
-      .setThumbnail(target.avatarURL)
-      .setFooter(`Banned by ${message.author.tag}`);
-
-    message.channel.send(embed);
-    target.ban(args[1]);
+    message.guild
+      .member(member)
+      .ban()
+      .then(() => {
+        message.channel.send(`${member.user.tag} has been banned.`);
+      });
   }
 };

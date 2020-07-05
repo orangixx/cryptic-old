@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-exports.run = async (bot, message) => {
+exports.run = async (client, message) => {
   let disabled = 0;
   if (disabled === 1) {
     message.channel.send();

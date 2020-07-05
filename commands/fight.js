@@ -82,7 +82,7 @@ const generateMessage = () =>
     })
     .join("\n\n");
 
-exports.run = (bot, message, args) => {
+exports.run = (client, message, args) => {
   let disabled = 0;
   if (disabled === 1) {
     message.channel.send();

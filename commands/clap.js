@@ -4,7 +4,7 @@ const randomizeCase = word =>
     .map(c => (Math.random() > 0.5 ? c.toUpperCase() : c.toLowerCase()))
     .join("");
 
-exports.run = (bot, message, args) => {
+exports.run = (client, message, args) => {
   var fs = require("fs");
 
   fs.readFile("./e/cmds.json", "utf8", function(err, contents) {

@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (bot, message, args) => {
+module.exports.run = async (client, message, args) => {
   if (args[0] == "help") {
     message.reply("Usage: c!report <user> <reason>");
     return;

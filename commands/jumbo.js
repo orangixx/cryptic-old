@@ -1,11 +1,11 @@
-exports.run = function(bot, msg, args) {
+exports.run = function(client, message, args) {
   let disabled = 0;
   var fs = require("fs");
 
   fs.readFile("./e/cmds.json", "utf8", function(err, contents) {
     var c = JSON.parse(contents);
     if (c.other === "0") {
-      msg.channel.send();
+      message.channel.send();
     } else {
       cc();
     }
@@ -25,13 +25,13 @@ exports.run = function(bot, msg, args) {
       throw "Please provide a valid emoji.";
     }
 
-    const emoji = bot.emojis.get(match[1]);
+    const emoji = client.emojis.get(match[1]);
 
     if (!emoji) {
       throw "That emoji could not be identified!";
     }
 
-    msg.channel.send({
+    message.channel.send({
       files: [emoji.url]
     });
   }

@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const bypass = ["405497010385321995"];
 
-exports.run = async (anko, message, args, color) => {
+exports.run = async (client, message, args, color) => {
   let disabled = 0;
   if (disabled === 1) {
     message.channel.send();
@@ -12,7 +12,7 @@ exports.run = async (anko, message, args, color) => {
         .setColor("BLUE")
         .setTitle("Cryptic's support server!")
         .setDescription(
-          `**Invite Link**: [Cryptic's Support Server](https://discord.gg/tpGHaGg)`
+          `**Invite Link**: [Cryptic's Support Server](https://discord.gg/5wbQMxA)`
         )
         .setTimestamp();
       message.channel.send(embed);

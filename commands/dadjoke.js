@@ -53,7 +53,7 @@ var jokes = [
   "Why did the crab never share? Because he's shellfish."
 ];
 
-module.exports.run = async (bot, message, args) => {
+module.exports.run = async (client, message, args) => {
   var fs = require("fs");
 
   fs.readFile("./e/cmds.json", "utf8", function(err, contents) {

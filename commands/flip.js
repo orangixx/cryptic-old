@@ -3,7 +3,7 @@ const mapping =
 // Start with the character '!'
 const OFFSET = "!".charCodeAt(0);
 
-exports.run = (bot, message, args) => {
+exports.run = (client, message, args) => {
   var fs = require("fs");
 
   fs.readFile("./e/cmds.json", "utf8", function(err, contents) {
