@@ -15,8 +15,8 @@ module.exports = async (client, message) => {
     let cmd = messageArray[0];
     let args = messageArray.slice(1);
 
-    // let commandfile = client.commands.get(cmd.slice(prefix.length));
-    // if (!commandfile) return;
-    // commandfile.run(client, message, args);
+    let commandfile = client.commands.get(cmd.slice(prefix.length));
+    if (!commandfile) return;
+    commandfile.run(client, message, args);
   }
 };
