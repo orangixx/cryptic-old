@@ -56,7 +56,7 @@ client.on("ready", () => {
      .setFooter(`Member #${member.guild.memberCount}`)
     const welcomeChannel = member.guild.channels.cache.find(
       channel =>
-        channel.name === "│general");
+        channel.name === "general");
     if (welcomeChannel) {
       welcomeChannel.send(embed).catch(err => console.log(err));
     }
