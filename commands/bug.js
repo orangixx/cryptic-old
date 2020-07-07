@@ -15,7 +15,7 @@ let reportEmbed = new Discord.MessageEmbed()
  .addField("Bug Reported at", message.createdAt)
  .addField("Bug Report reason", rreason);
 
-let Channel = message.guild.channels.cache.find(ch => ch.name === "│reported-bugs")
+let Channel = message.guild.channels.cache.find(ch => ch.name === "reported-bugs")
 if(!Channel)return message.channel.send(`There is no channel in this guild which is called \`reports\``)
  console.log("3") // Channel exists
 
