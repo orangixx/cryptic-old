@@ -20,7 +20,7 @@ module.exports.run = async (client, message, args) => {
     .addField("Reported At:", message.createdAt)
     .addField("Reason:", reason);
 
-  let reportschannel = message.guild.channels.cache.find(element => element.name === "│reported-users");
+  let reportschannel = message.guild.channels.cache.find(element => element.name === "reported-users");
   if (!reportschannel)
     return message.channel.send("Couldn't find a **│reported-users** channel.");
 
