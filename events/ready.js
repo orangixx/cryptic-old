@@ -1,4 +1,4 @@
-const prefix = "c!";
+const default_prefix = "c!";
 
 module.exports = async client => {
   console.log(`Bot is Online! Username: ${client.user.tag}`);
@@ -15,9 +15,9 @@ module.exports = async client => {
   client.user.setPresence({
     status: "online",
     activity: {
-      //name: `${prefix}help | ${client.guilds.cache.size} servers | ${client.users.cache.size} users`,
-      //name: `${prefix}help | ${client.users.cache.size} users`,
-      name: `${client.guilds.cache.size} servers | ${prefix}help`,
+      //name: `${default_prefix}help | ${client.guilds.cache.size} servers | ${client.users.cache.size} users`,
+      //name: `${default_prefix}help | ${client.users.cache.size} users`,
+      name: `${client.guilds.cache.size} servers | ${default_prefix}help`,
       type: "WATCHING"
     }
   });
