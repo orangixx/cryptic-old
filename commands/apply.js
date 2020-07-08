@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 module.exports.run = async (client, message, args) => {};
 
-module.exports.run = async (client, message, args, prefix) => {
+module.exports.run = async (client, message, args, default_prefix) => {
   let allowed = ["405497010385321995"];
 
  // if (!allowed.includes(message.author.id)) return message.channel.send("Applications are __Pending__, please wait!");
