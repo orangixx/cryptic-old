@@ -109,7 +109,7 @@ client.on("message", message => {
   if (message.author.bot) return;
   if (!message.guild) return;
 
-  if (message.content.startsWith(prefix)) {
+  if (message.content.startsWith(default_prefix)) {
     const args = message.content
       .slice(prefix.length)
       .trim()
