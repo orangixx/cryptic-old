@@ -9,7 +9,7 @@
 
       if (!args[0]) return message.channel.send("Please provide a new prefix.");
 
-      if (!args[1]) return message.channel.send("The prefix can\'t have 2 spaces in it.");
+      if (args[1]) return message.channel.send("The prefix can\'t have 2 spaces in it.");
 
       db.set(`prefix_${message.guild.id}`, args[0])
 
