@@ -68,7 +68,7 @@ client.on("ready", () => {
 });
 
 client.commands = new Discord.Collection();
-client.prefix = default_prefix;
+client.default_prefix = default_prefix;
 client.queue = new Map();
 client.aliases = new Discord.Collection();
 
