@@ -6,7 +6,7 @@ const client = new Discord.Client({
 const { MessageEmbed } = require("discord.js");
 const { readdirSync } = require("fs");
 const { join } = require("path");
-const { token, prefix } = require("./config.json");
+const { token, default_prefix } = require("./config.json");
 client.commands = new Discord.Collection();
 //let xp = require("./xp.json");
 require("dotenv").config();
@@ -66,7 +66,7 @@ client.on("ready", () => {
 });
 
 client.commands = new Discord.Collection();
-client.prefix = prefix;
+client.prefix = default_prefix;
 client.queue = new Map();
 client.aliases = new Discord.Collection();
 
@@ -132,6 +132,9 @@ client.on("message", message => {
 client.on("message", async message => {
   if (message.author.bot) return;
   if (message.channel.type === "dm") return;
+
+  let prefix = await db.get(`prefix_${message.guild.id}`);
+  if(prefix === null) prefix = default_prefix;
 
   /* let xpAdd = Math.floor(Math.random() * 7) + 8;
   console.log(xpAdd);
