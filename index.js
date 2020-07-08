@@ -7,10 +7,12 @@ const { MessageEmbed } = require("discord.js");
 const { readdirSync } = require("fs");
 const { join } = require("path");
 const { token, default_prefix } = require("./config.json");
+const db = require("quick.db");
 client.commands = new Discord.Collection();
 //let xp = require("./xp.json");
 require("dotenv").config();
 const guildInvites = new Map();
+
 
 const DBL = require("dblapi.js");
 const dbl = new DBL(process.env.DBL, client);
