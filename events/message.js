@@ -1,4 +1,4 @@
-const prefix = "c!";
+const default_prefix = "c!";
 module.exports = async (client, message) => {
   if (message.author.bot) return;
 
@@ -10,12 +10,12 @@ module.exports = async (client, message) => {
     .then(m => m.delete({ timeout: 10000 }))
   }*/
   
-  if (message.content.startsWith(prefix)) {
+  if (message.content.startsWith(default_prefix)) {
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
     let args = messageArray.slice(1);
 
-    let commandfile = client.commands.get(cmd.slice(prefix.length));
+    let commandfile = client.commands.get(cmd.slice(default_prefix.length));
     if (!commandfile) return;
     commandfile.run(client, message, args);
   }
