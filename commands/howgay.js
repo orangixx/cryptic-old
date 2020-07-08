@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 module.exports.run = async (client, message, args) => {};
 
-module.exports.run = async (client, message, args, prefix) => {
+module.exports.run = async (client, message, args, default_prefix) => {
   var fs = require("fs");
 
   var user2 = message.mentions.members.last();
