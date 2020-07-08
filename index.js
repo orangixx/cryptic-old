@@ -113,7 +113,7 @@ client.on("message", message => {
 
   if (message.content.startsWith(default_prefix)) {
     const args = message.content
-      .slice(prefix.length)
+      .slice(default_prefix.length)
       .trim()
       .split(/ +/);
     const command = args.shift().toLowerCase();
