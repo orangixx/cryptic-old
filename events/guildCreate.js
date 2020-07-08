@@ -35,7 +35,7 @@ module.exports = class {
 
         let thanksEmbed = new Discord.MessageEmbed()
             .setAuthor("Thank you for adding me to your server!")
-            .setDescription("To configure me, type `"+this.client.config.prefix+"help` and look at the administration commands!\nTo change the language, type `"+this.client.config.prefix+"setlang [language]`.")
+            .setDescription("To configure me, type `"+this.client.config.default_prefix+"help` and look at the administration commands!\nTo change the language, type `"+this.client.config.default_prefix+"setlang [language]`.")
             .setColor(this.client.config.embed.color)
             .setFooter(this.client.config.embed.footer)
             .setTimestamp();
