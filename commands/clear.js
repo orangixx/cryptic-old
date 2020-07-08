@@ -40,7 +40,7 @@ module.exports = {
     message.channel
       .bulkDelete(deleteAmount, true)
       .then(deleted =>
-        message.channel.send(`I deleted \`${deleted.size}\` messages.`)
+        message.channel.send(`Deleted \`${deleted.size}\` messages.`)
       )
       .then(m => m.delete({ timeout: 5000, reason: "Delete Error Message" }))
       .catch(err => message.reply(`Something went wrong... ${err}`));

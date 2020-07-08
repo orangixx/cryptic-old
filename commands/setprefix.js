@@ -5,7 +5,7 @@
   description: "Sets a servers prefix",
 
   async run (client, message, args) {
-      if (!message.member.hasPermission("MANAGE_SERVER")) return message.channel.send("You don\'t have perms to use this command.");
+      if (!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("You don\'t have perms to use this command.");
 
       if (!args[0]) return message.channel.send("Please provide a new prefix.");
 
