@@ -6,7 +6,7 @@ exports.run = async (client, message, args) => {
   let embed = new discord.MessageEmbed()
     .setTitle("Cryptic's Utility Commands")
     .setDescription(
-      "`avatar\nbotinfo\ncreateinvite\nicon\ninvite\ninstagram\nmessage\nping\nrobloxsearch\nserverinfo\nserver1nfo2\nsecurelevel\nspotify\nshorturl\nstats\nuptime\nuserid\nvote\nweather\nwhois`"
+      "`avatar\nbotinfo\ncreateinvite\ninvite\ninstagram\nmessage\nping\nrobloxsearch\nserverinfo\nserverinfo2\nsecurelevel\nspotify\nshorturl\nstats\nuptime\nvote\nweather\nwhois`"
     )
     .setFooter("Need help? Join our support server: https://discord.gg/5wbQMxA")
     .setColor("RANDOM")
