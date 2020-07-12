@@ -46,30 +46,6 @@ client.on("ready", () => {
   });
 });
 
-  client.on("guildMemberAdd", async member => {
-  const cachedInvites = guildInvites.get(member.guild.id);
-  const newInvites = await member.guild.fetchInvites();
-  guildInvites.set(member.guild.id, newInvites);
-  try {
-    const usedInvite = newInvites.find(
-      inv => cachedInvites.get(inv.code).uses < inv.uses
-    );
-    const embed = new MessageEmbed()
-     .setTitle(`${member.user.tag}`)
-     .setDescription(
-        `Hello there ${member.user.username}!`)
-     .setFooter(`Member #${member.guild.memberCount}`)
-    const welcomeChannel = member.guild.channels.cache.find(
-      channel =>
-        channel.name === "general");
-    if (welcomeChannel) {
-      welcomeChannel.send(embed).catch(err => console.log(err));
-    }
-  } catch (err) {
-   // console.log(err);
-  }
-});
-
 settings.findOne({ guildID: message.guild.id }, async (err, res) => {
 
 if(!res) {
