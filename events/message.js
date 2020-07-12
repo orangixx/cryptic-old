@@ -1,4 +1,3 @@
-const default_prefix = "c!";
 const { Client, MessageEmbed, Message } = require("discord.js")
 const level = require("../models/level");
 const settings = require("../models/settings");
@@ -19,7 +18,9 @@ module.exports = async (client = new Client(), message = new Message()) => {
       const newdata = new settings(defSettings);
       return newdata.save()
     }
-  })
+
+    const prefix = res.prefix
+  
 
   level.findOne({ userID: message.author.id, guildID: message.guild.id }, async (err, res) => {
     if(!res) {
@@ -35,6 +36,8 @@ module.exports = async (client = new Client(), message = new Message()) => {
       newdata.save()
     } else {
       if (!message.content.startsWith(prefix)) {
+        let guilds = ['264445053596991498']
+        if(message.guild.id in guilds) return;
         const generate = Math.floor(Math.random() * 18);
         (await level.findOneAndUpdate({ guildID: message.guild.id, userID: message.author.id }, { totalxp: res1.totalxp + generate, xp: res1.xp + generate })).save();
 
@@ -47,13 +50,16 @@ module.exports = async (client = new Client(), message = new Message()) => {
   }
   })
 
-  if(!message.content.startsWith(default_prefix)) return;
+  if(!message.content.startsWith(prefix)) return;
   
-    let messageArray = message.content.split(" ");
-    let cmd = messageArray[0];
-    let args = messageArray.slice(1);
+    const args = message.content
+      .slice(prefix.length)
+      .trim()
+      .split(/ +/);
+    const cmd = args.shift().toLowerCase();
 
-    let commandfile = client.commands.get(cmd.slice(default_prefix.length));
+    let commandfile = client.commands.get(cmd) || client.commands.get(client.aliases.get(cmd));
     if (!commandfile) return;
     commandfile.run(client, message, args);
+})
 };
