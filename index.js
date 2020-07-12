@@ -5,7 +5,7 @@ const client = new Discord.Client({
 });
 const settings = require("./models/settings")
 const mongoose = require("mongoose");
-mongoose.connect("MONGODB URI", { useUnifiedTopology: true, useFindAndModify: false, useNewUrlParser: true }).then(() => {
+mongoose.connect("mongodb+srv://Cryptic:197Cryptic493Admin19472@cryptic.bppjz.mongodb.net/?retryWrites=true&w=majority", { useUnifiedTopology: true, useFindAndModify: false, useNewUrlParser: true }).then(() => {
   console.log('Connected to MongoDB.')
 });
 const { MessageEmbed } = require("discord.js");
