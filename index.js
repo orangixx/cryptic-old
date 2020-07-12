@@ -3,6 +3,10 @@ const client = new Discord.Client({
   disableEveryone: true,
   disabledEvents: ["TYPING_START"]
 });
+const mongoose = require("mongoose");
+mongoose.connect("MONGODB URI", { useUnifiedTopology: true, useFindAndModify: false, useNewUrlParser: true }).then(() => {
+  console.log('Connected to MongoDB.')
+});
 const { MessageEmbed } = require("discord.js");
 const { readdirSync } = require("fs");
 const { join } = require("path");
