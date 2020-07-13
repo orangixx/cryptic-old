@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 module.exports = {
   name: "8ball",
   category: "fun",
-run = async (client, message, args) => {
+  run: async (client, message, args) => {
   var fs = require("fs");
 
   fs.readFile("./e/cmds.json", "utf8", function(err, contents) {

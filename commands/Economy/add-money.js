@@ -3,7 +3,7 @@ const discord = require("discord.js");
 
 module.exports = {
   name: "add-money",
-  category: "fun",
+  category: "economy",
 run: async (client, message, args, config) => {
   /*if (!message.member.hasPermission("ADMINISTRATOR")) {
     // if message.author / member does not have the permission ADMINISTRATOR, return.

@@ -46,12 +46,6 @@ client.on("ready", () => {
   });
 });
 
-settings.findOne({ guildID: message.guild.id }, async (err, res) => {
-
-if(!res) {
-  const newdata = new settings(defSettings);
-  newdata.save()
-}
 
 client.commands = new Discord.Collection();
 client.default_prefix = res.prefix;
@@ -100,6 +94,5 @@ fs.readdir("./events/", (err, files) => {
         : null
     });
   });
-});
 
 client.login(process.env.TOKEN);
