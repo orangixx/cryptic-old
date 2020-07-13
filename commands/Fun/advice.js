@@ -1,13 +1,11 @@
 const request = require("request-promise");
 
 module.exports = {
-    "info": {
-        "permission": 1,
-        "name": "advice",
-        "description": "Gives you an advice",
-        "aliases": [],
-        "syntax": "advice"
-    },
+        permission: 1,
+        name: "advice",
+        description: "Gives you an advice",
+        aliases: [],
+        category: "fun",
     run: (client, message, args) => {
         message.delete().catch(() => {});
 

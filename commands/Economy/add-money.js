@@ -1,7 +1,10 @@
 const db = require("quick.db");
 const discord = require("discord.js");
 
-exports.run = async (client, message, args, config) => {
+module.exports = {
+  name: "add-money",
+  category: "fun",
+run: async (client, message, args, config) => {
   /*if (!message.member.hasPermission("ADMINISTRATOR")) {
     // if message.author / member does not have the permission ADMINISTRATOR, return.
     return message.channel
@@ -42,4 +45,5 @@ exports.run = async (client, message, args, config) => {
     .setTimestamp();
 
   message.channel.send(embed);
-};
+}
+}

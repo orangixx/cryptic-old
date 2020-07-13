@@ -58,7 +58,10 @@ client.default_prefix = res.prefix;
 client.queue = new Map();
 client.aliases = new Discord.Collection();
 
-fs.readdir("./commands/", (err, files) => {
+const arr = ["commands", "event"];
+arr.forEach(a => require(`./handlers/${a}`))(client)
+
+/*fs.readdir("./commands/", (err, files) => {
   if (err) return console.log(err);
   files.forEach(file => {
     if (!file.endsWith(".js")) {
@@ -81,6 +84,7 @@ fs.readdir("./events/", (err, files) => {
     client.on(eventName, eventFunc.bind(null, client));
   });
 });
+*/
 
 //client.on("warn", info => console.log(info));
 

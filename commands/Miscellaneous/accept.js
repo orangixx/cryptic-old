@@ -1,7 +1,7 @@
 module.exports = {
   name: "accept",
   description: "Accept a call!",
-  category: "globalchat",
+  category: "miscellaneous",
   run: async (client, message, args) => {
     if (client.globalChat.guilds.get(message.guild.id))
       return message.channel.send(

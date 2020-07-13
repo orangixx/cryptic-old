@@ -1,5 +1,8 @@
 const Discord = require("discord.js");
-module.exports.run = async (client, message, args) => {
+module.exports = {
+  name: "8ball",
+  category: "fun",
+run = async (client, message, args) => {
   var fs = require("fs");
 
   fs.readFile("./e/cmds.json", "utf8", function(err, contents) {
@@ -70,4 +73,5 @@ module.exports.run = async (client, message, args) => {
       embed: newembed
     });
   }
-};
+}
+}

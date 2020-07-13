@@ -1,6 +1,10 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (client, message, args) => {
+module.exports = {
+name: "4k",
+aliases: [],
+category: "fun",
+run: async (client, message, args) => {
   let disabled = 0;
   var fs = require("fs");
 
@@ -75,4 +79,5 @@ module.exports.run = async (client, message, args) => {
       message.channel.send(notnsfw);
     }
   }
-};
+}
+}
