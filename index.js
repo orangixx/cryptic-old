@@ -46,13 +46,8 @@ client.on("ready", () => {
   });
 });
 
-if(!res) {
-  const newdata = new settings(defSettings);
-  newdata.save()
-}
-
 client.commands = new Discord.Collection();
-client.default_prefix = res.prefix;
+client.default_prefix = "c!";
 client.queue = new Map();
 client.aliases = new Discord.Collection();
 
