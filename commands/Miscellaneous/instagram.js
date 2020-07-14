@@ -6,7 +6,7 @@ const fetch = require("node-fetch");
 module.exports = {
   name: "instagram",
   aliases: ["insta"],
-  category: "Info",
+  category: "miscellaneous",
   description: "Find out some nice instagram statistics",
   usage: "!instagram <Username>",
   run: async (client, message, args) => {

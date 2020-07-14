@@ -1,6 +1,6 @@
 const discord = require("discord.js");
 
-exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args) => {
   var fs = require("fs");
 
   var fs = require("fs");
@@ -28,3 +28,7 @@ exports.run = async (client, message, args) => {
     message.channel.send(embed);
   }
 };
+
+module.exports = {
+  category: "bot"
+}
