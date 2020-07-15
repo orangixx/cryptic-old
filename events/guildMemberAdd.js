@@ -4,17 +4,6 @@ const message = require("./message");
 
 module.exports = async (client = new Client(), guild = new Guild()) => {
 
-  const cachedInvites = guildInvites.get(member.guild.id);
-  const newInvites = await member.guild.fetchInvites();
-  guildInvites.set(member.guild.id, newInvites);
-  try {
-    const usedInvite = newInvites.find(
-      inv => cachedInvites.get(inv.code).uses < inv.uses
-    );
-  } catch(e) {
-    console.log(e)
-  }
-
   settings.findOne({ guildID: message.guild.id }, async (err, res) => {
 
   if(!res || !res.welcomemsg || !res.welcome || !res.welcomechannel) return guild.systemChannel;
