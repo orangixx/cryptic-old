@@ -1,5 +1,5 @@
 const { Client, Guild, MessageEmbed } = require("discord.js");
-const settings = require(".././models/settings")
+const settings = require("../models/settings")
 
 module.exports = async (client = new Client(), guild = new Guild()) => {
     
