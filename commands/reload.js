@@ -5,8 +5,8 @@ exports.run = async (client, message) => {
   if (disabled === 1) {
     message.channel.send();
   } else { 
-    let allowed = ["405497010385321995", "259208178657394699"];
-                  //Roman, Jesse
+    let allowed = ["405497010385321995", "259208178657394699", "342656844235538433", "522049612161351681"];
+                  //Roman, Jesse, Andrownaut, Queryzi
 
     if (!allowed.includes(message.author.id))
       return message.channel.send("You cannot use this command.");
