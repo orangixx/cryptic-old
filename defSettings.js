@@ -1,4 +1,4 @@
-module.exports = async (x) => {
+module.exports = async (x = new String()) => {
     return {
         guildID: x,
         prefix: "c!",
