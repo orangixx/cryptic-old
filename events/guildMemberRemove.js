@@ -1,7 +1,7 @@
 const { Client, GuildMember, MessageEmbed } = require("discord.js");
 const settings = require("../models/settings")
 
-module.exports = async (client = new Client(), guild = new GuildMember()) => {
+module.exports = async (client = new Client(), member = new GuildMember()) => {
     
       settings.findOne({ guildID: message.guild.id }, async (err, res) => {
     
