@@ -32,5 +32,6 @@ exports.run = (client, message, args) => {
 };
 
 module.exports = {
+  name: "hastebin",
   category: "miscellaneous"
 }

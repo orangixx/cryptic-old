@@ -33,5 +33,6 @@ module.exports.run = async (client, message, args, default_prefix) => {
 };
 
 module.exports = {
+  name: "howgay",
   category: "fun"
 }

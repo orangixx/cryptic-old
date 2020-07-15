@@ -1,6 +1,6 @@
 const discord = require("discord.js");
 
-module.exports.run = async (client, message, args) => {
+exports.run = async (client, message, args) => {
   var fs = require("fs");
 
   var fs = require("fs");
@@ -16,12 +16,12 @@ module.exports.run = async (client, message, args) => {
   function cc() {
     let boticon = client.user.displayAvatarURL;
     let embed = new discord.MessageEmbed()
-      .setAuthor("Cryptic Invites", message.guild.iconURL)
+      .setAuthor("Website", message.guild.iconURL)
       .addField(
-        "Add the bot to your server",
-        `[Click here!](https://discordapp.com/api/oauth2/authorize?client_id=612134650114080818&permissions=8&scope=bot)`
+        "Website is Down...",
+        //"Visit Cryptics Website Here:",
+        `[Cryptic's Website](https://roman-cryptic-dashboard.glitch.me/down)`
       )
-      .addField("Join our server", `[Click here!](https://discord.gg/5wbQMxA)`)
       .setColor("BLUE")
       .setTimestamp()
       .setThumbnail(boticon);
@@ -30,6 +30,7 @@ module.exports.run = async (client, message, args) => {
 };
 
 module.exports = {
-  name: "invite",
-  category: "bot"
+  name: "website",
+  category: "bot",
+  description: "Website."
 }

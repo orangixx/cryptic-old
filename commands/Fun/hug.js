@@ -33,5 +33,6 @@ module.exports.run = async (bot, message, args, default_prefix) => {
 };
 
 module.exports = {
+  name: "hug",
   category: "fun"
 }
