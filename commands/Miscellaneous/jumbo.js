@@ -36,9 +36,10 @@ exports.run = function(client, message, args) {
     });
   }
 
-  exports.info = {
+  exports = {
     name: "jumbo",
     usage: "c!jumbo <emoji>",
-    description: "Enlarges emojis!"
+    description: "Enlarges emojis!",
+    category: "miscellaneous"
   };
 };

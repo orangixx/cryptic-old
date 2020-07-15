@@ -42,7 +42,7 @@ module.exports.run = async (client, message, args) => {
         let emb = new Discord.MessageEmbed()
           .setColor("BLUE")
           .setDescription(
-            `${killed} was killed by ${message.author} 💔 REST IN PEACE`
+            `${killed} was killed by ${message.author} 💔 REST IN PEACE` 
           )
           .setImage("https://images.app.goo.gl/NrbgKwx9Ra4Vz1CA9");
         message.channel.send(emb);
@@ -50,3 +50,8 @@ module.exports.run = async (client, message, args) => {
     }
   }
 };
+
+module.exports = {
+  name: "kill",
+  category: "fun"
+}
