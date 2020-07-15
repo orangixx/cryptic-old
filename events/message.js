@@ -1,10 +1,11 @@
 const { Client, MessageEmbed, Message } = require("discord.js")
 const level = require("../models/level");
 const settings = require("../models/settings");
-const defSettings = require("../defSettings");
 module.exports = async (client = new Client(), message = new Message()) => {
   if (message.author.bot) return;
 
+  const defSettings = require("../defSettings")(message.guild.id);
+  
   /*let inviteLink = ["discord.gg", "discord.com/invite", "discordapp.com/invite"];
   
   if (inviteLink.some(word => message.content.toLowerCase().includes(word))) {
