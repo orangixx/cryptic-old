@@ -1,11 +1,13 @@
 const { Message, MessageEmbed, Client } = require("discord.js");
 const settings = require("../models/settings");
-const defSettings = require("../defSettings");
 
 module.exports = {
     name: "settings",
     description: "A command to control all settings for Cryptic.",
     run: async (client = new Client(), message = new Message(), args = new Array()) => {
+        
+        const defSettings = require("../defSettings")(message.guild.id);
+        
         if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send("You do not have perms to use this command.");
 
         const embed = new MessageEmbed()
