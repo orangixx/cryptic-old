@@ -1,8 +1,8 @@
-const { Client, Guild, MessageEmbed } = require("discord.js");
+const { Client, GuildMember, MessageEmbed } = require("discord.js");
 const settings = require("../models/settings");
 const message = require("./message");
 
-module.exports = async (client = new Client(), guild = new Guild()) => {
+module.exports = async (client = new Client(), member = new GuildMember()) => {
 
   settings.findOne({ guildID: message.guild.id }, async (err, res) => {
 
@@ -11,7 +11,7 @@ module.exports = async (client = new Client(), guild = new Guild()) => {
 
   const embed = new MessageEmbed()
   .setAuthor(`Welcome {membername} to {guildname}`)
-  .setDescription(res.welcomemsg.replace("{member}", `${message.author}`).replace("{membername}", `${message.author.username}`).replace("{memberid}", `${message.author.id}`).replace("{guildname}", `${message.guild.name}`).replace("{guildid}", `${message.guild.id}`).replace("{membercount}", `${message.guild.memberCount}`).replace("{owner}", `<@${message.guild.owner.id}>`).replace("{ownername}", `${message.guild.owner.username}`).replace("{ownerid}", `${message.guild.owner.id}`))
+  .setDescription(res.welcomemsg.replace("{member}", `${member}`).replace("{membername}", `${member.user.username}`).replace("{memberid}", `${member.user.id}`).replace("{guildname}", `${message.guild.name}`).replace("{guildid}", `${member.guild.id}`).replace("{membercount}", `${member.guild.memberCount}`).replace("{owner}", `<@${member.guild.owner.id}>`).replace("{ownername}", `${member.guild.owner.username}`).replace("{ownerid}", `${member.guild.owner.id}`))
   message.channel.send(embed)
   })
 };//.slice(prefix)
