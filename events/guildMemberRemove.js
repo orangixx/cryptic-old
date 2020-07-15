@@ -1,7 +1,7 @@
-const { Client, Guild, MessageEmbed } = require("discord.js");
+const { Client, GuildMember, MessageEmbed } = require("discord.js");
 const settings = require("../models/settings")
 
-module.exports = async (client = new Client(), guild = new Guild()) => {
+module.exports = async (client = new Client(), guild = new GuildMember()) => {
     
       settings.findOne({ guildID: message.guild.id }, async (err, res) => {
     
@@ -10,7 +10,7 @@ module.exports = async (client = new Client(), guild = new Guild()) => {
     
       const embed = new MessageEmbed()
       .setAuthor(`Oh no {membername} left {guildname}`)
-      .setDescription(res.leavemsg.replace("{member}", `${message.author}`).replace("{membername}", `${message.author.username}`).replace("{memberid}", `${message.author.id}`).replace("{guildname}", `${message.guild.name}`).replace("{guildid}", `${message.guild.id}`).replace("{membercount}", `${message.guild.memberCount}`).replace("{owner}", `<@${message.guild.owner.id}>`).replace("{ownername}", `${message.guild.owner.username}`).replace("{ownerid}", `${message.guild.owner.id}`))
+      .setDescription(res.leavemsg.replace("{member}", `${member}`).replace("{membername}", `${member.user.username}`).replace("{memberid}", `${member.user.id}`).replace("{guildname}", `${message.guild.name}`).replace("{guildid}", `${member.guild.id}`).replace("{membercount}", `${member.guild.memberCount}`).replace("{owner}", `<@${member.guild.owner.id}>`).replace("{ownername}", `${member.guild.owner.username}`).replace("{ownerid}", `${member.guild.owner.id}`))
       message.channel.send(embed)
       })
 }
