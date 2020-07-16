@@ -1,45 +1,42 @@
-const discord = require("discord.js");
+module.exports=(async (message, gConfig) => {
+	if(!message) return new Error ("missing message parameter");
+	await require(`../../BaseCommand.js`)(message);
+	if(!message.member.hasPermission("KICK_MEMBERS")) return message.reply("Sorry, you must have the `KICK_MEMBERS` permission to use this.");
+	if (!args[0] || args.length < 1) return message.reply("Please provide a user MENTION, ID, USERNAME or USERNAME W/ DISCRIMINATOR");
 
-module.exports = {
-  name: "kick",
-  category: "moderation",
-  description: "Kick anyone with one shot xD",
-  usage: "kick <@user>",
-  run: (client, message, args) => {
-    if (!message.member.hasPermission("KICK_MEMBERS")) {
-      return message.channel.send(
-        `**${message.author.username}**, You do not have enough permission to use this command`
-      );
-    }
-
-    if (!message.guild.me.hasPermission("KICK_MEMBERS")) {
-      return message.channel.send(
-        `**${message.author.username}**, I do not have enough permission to use this command`
-      );
-    }
-
-    let target = message.mentions.members.first();
-
-    if (!target) {
-      return message.channel.send(
-        `**${message.author.username}**, Please mention the person who you want to kick`
-      );
-    }
-
-    if (target.id === message.author.id) {
-      return message.channel.send(
-        `**${message.author.username}**, You can not kick yourself`
-      );
-    }
-
-    let embed = new discord.MessageEmbed()
-      .setTitle("Action: Kick")
-      .setDescription(`Kicked ${target}`)
-      .setColor("#ff2050")
-      .setFooter(`Kicked by ${message.author.username}`);
-
-    message.channel.send(embed);
-
-    target.kick(args[1]);
-  }
-};
+	let member;
+	//DEFINING MEMBER
+	if (message.mentions.members.first()) member = message.mentions.members.first(); //MENTION
+	else if (message.guild.members.get(args[0])) member = message.guild.members.get(args[0]); //ID
+	else if (message.guild.members.find(t=>t.username === args[0])) member = message.guild.members.find(t=>t.username === args[0]); //USERNAME
+	else if (message.guild.members.find(t=>t.tag === args[0])) member = message.guild.members.find(t=>t.tag === args[0]) //TAG
+	else return message.reply("User entered is invalid. Please provide a user MENTION, ID, USERNAME or USERNAME W/ DISCRIMINATOR"); //IF NOTHING TRIGGERED
+	
+	if(message.author.id == member.id) return message.reply(`You cannot ${command} yourself!`);
+	
+	if(!member.kickable) return message.reply(`Sorry, I cannot ${command} ${member.user.tag}. Do they have higher roles than me? Do I have ${command} permission?`);
+	
+	if(member.roles.highest.calculatedPosition >= message.member.roles.highest.calculatedPosition && message.member.id !== message.guild.ownerID) return message.reply(`Sorry, you cannot ${command} ${member.user.tag} because their highest role is the same as, or higher than yours.`);
+	var reason = args.slice(1).join(' ');
+	if(!reason) reason = "No reason provided";
+	
+	var modlog=message.guild.channels.find(t=>t.name=="mod-log");
+	if(modlog !== null) {
+		var e=constructModLog(message.author,member,command,reason);
+		if(!e instanceof Discord.MessageEmbed) throw new Error("Function did not return MessageEmbed");
+	}
+	
+	await member.user.send(`You were kicked from **${message.guild.name}** (${message.guild.id} by **${message.author.tag}** (${message.author.id})\nReason: ${reason}`).catch(noerr=>null);
+	await member.kick(`Command "${command}": ${message.author.tag} -> ${reason}`)
+	.then(async()=>{
+		if(modlog !== null) {
+			var m=await modlog.send(e);
+			m.edit(new Discord.MessageEmbed(m.embeds[0]).setFooter(`Case ID: ${m.id}`));
+		}
+	}).then(async()=>{
+		message.reply(`Done. Check ${modlog}.`);
+	})
+	.catch(e=>{
+		message.channel.send(`Sorry, ${message.member}. I couldn't ${command} ${member.user.tag} because of: ${e}`);
+	});
+});
