@@ -16,7 +16,7 @@ module.exports = async (client = new Client(), message = new Message()) => {
 
   settings.findOne({ guildID: message.guild.id }, async (err, res) => {
     if(!res) {
-      const newdata = new settings(defSettings);
+      const newdata = new settings(defSettings(message.guild.id));
       return newdata.save()
     }
 
