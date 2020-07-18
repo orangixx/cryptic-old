@@ -36,6 +36,14 @@ client.on("inviteCreate", async invite =>
   guildInvites.set(invite.guild.id, await invite.guild.fetchInvites())
 );
 
+client.on("messageUpdate", async(oldMessage, newMessage) => {
+
+})
+
+client.on("messageDelete", async(message) => {
+
+})
+
 client.on("ready", () => {
   console.log(`${client.user.tag} is ready to kick some butt!`);
   client.guilds.cache.forEach(guild => {
