@@ -37,12 +37,12 @@ client.on("inviteCreate", async invite =>
 );
 
 client.on("messageUpdate", async(oldMessage, newMessage) => {
-
-})
+  require("./events/messageUpdate.js")(oldMessage, newMessage)
+});
 
 client.on("messageDelete", async(message) => {
-
-})
+  require("./events/messageDelete.js")(message)
+});
 
 client.on("ready", () => {
   console.log(`${client.user.tag} is ready to kick some butt!`);
