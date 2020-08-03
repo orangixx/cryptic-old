@@ -11,16 +11,13 @@ module.exports = async client => {
       )
       .join("\n")
   );
+  
+  setInterval(function() {
+        let statuses = [`${default_prefix}help | ${client.users.cache.size} users`. `${default_prefix}help | ${client.guilds.cache.size} servers | ${client.users.cache.size} users`, `client.guilds.cache.size} servers | ${default_prefix}help`]
+        let status = statuses[Math.floor(Math.random() * statuses.length)];
+        bot.user.setActivity(status, {type: "WATCHING"});
 
-  client.user.setPresence({
-    status: "online",
-    activity: {
-      //name: `${default_prefix}help | ${client.guilds.cache.size} servers | ${client.users.cache.size} users`,
-      //name: `${default_prefix}help | ${client.users.cache.size} users`,
-      name: `${client.guilds.cache.size} servers | ${default_prefix}help`,
-      type: "WATCHING"
-    }
-  });
+    }, 8000)
 };
 
 // now it will show activity
