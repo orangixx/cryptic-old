@@ -3,15 +3,6 @@ const Discord = require("discord.js");
 module.exports.run = async (client, message, args, i) => {
   var fs = require("fs");
   if (!args[1]) { return; }
-  fs.readFile("./e/cmds.json", "utf8", function(err, contents) {
-    var c = JSON.parse(contents);
-    if (c.other === "0") {
-      message.channel.send();
-    } else {
-      cc();
-    }
-  });
-  function cc() {
     let alpha = " ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".split(""),
       morse = "/,.-,-...,-.-.,-..,.,..-.,--.,....,..,.---,-.-,.-..,--,-.,---,.--.,--.-,.-.,...,-,..-,...-,.--,-..-,-.--,--..,.----,..---,...--,....-,.....,-....,--...,---..,----.,-----".split(
         ","
@@ -40,7 +31,6 @@ module.exports.run = async (client, message, args, i) => {
       text = text.join(" ");
     }
     return message.channel.send("```" + text + "```");
-  }
 };
 
 module.exports = {

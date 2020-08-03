@@ -9,15 +9,6 @@ module.exports.run = async (client, message, args) => {
     message.reply("Mention a user to kill!");
     return;
   }
-  fs.readFile("./e/cmds.json", "utf8", function(err, contents) {
-    var c = JSON.parse(contents);
-    if (c.action === "0") {
-      message.channel.send();
-    } else {
-      cc();
-    }
-  });
-  function cc() {
     let killed = message.guild.member(
       message.mentions.users.first() || message.guild.members.get(args[0])
     );
@@ -48,7 +39,6 @@ module.exports.run = async (client, message, args) => {
         message.channel.send(emb);
       }
     }
-  }
 };
 
 module.exports = {

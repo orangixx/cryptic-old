@@ -2,16 +2,6 @@ const Discord = require("discord.js");
 
 module.exports.run = async (client, message, args) => {
   var fs = require("fs");
-
-  fs.readFile("./e/cmds.json", "utf8", function(err, contents) {
-    var c = JSON.parse(contents);
-    if (c.action === "0") {
-      message.channel.send();
-    } else {
-      cc();
-    }
-  });
-  function cc() {
     if (!args[0]) return message.reply("Mention someone to kiss!");
 
     var subreddits = [
@@ -39,7 +29,6 @@ module.exports.run = async (client, message, args) => {
     message.channel.send({
       embed
     });
-  }
 };
 
 module.exports = {

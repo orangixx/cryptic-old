@@ -1,15 +1,5 @@
 exports.run = async (client, message, args, level) => {
   var fs = require("fs");
-
-  fs.readFile("./e/cmds.json", "utf8", function(err, contents) {
-    var c = JSON.parse(contents);
-    if (c.other === "0") {
-      message.channel.send();
-    } else {
-      cc();
-    }
-  });
-  function cc() {
     try {
       let notAnimated = [];
       let animated = [];
@@ -30,7 +20,6 @@ exports.run = async (client, message, args, level) => {
       );
     } catch (err) {
       message.channel.send("There was an error!\n" + err).catch();
-    }
   }
 
   module.exports = {

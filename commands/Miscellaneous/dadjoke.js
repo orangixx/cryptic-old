@@ -54,24 +54,12 @@ var jokes = [
 ];
 
 module.exports.run = async (client, message, args) => {
-  var fs = require("fs");
-
-  fs.readFile("./e/cmds.json", "utf8", function(err, contents) {
-    var c = JSON.parse(contents);
-    if (c.fun === "0") {
-      message.channel.send();
-    } else {
-      cc();
-    }
-  });
-  function cc() {
     var DAD = new Discord.MessageEmbed()
       .setDescription(jokes[Math.floor(Math.random() * jokes.length)])
 
       .setColor("BLUE");
 
     message.channel.send(DAD);
-  }
 };
 
 module.exports = {

@@ -4,17 +4,6 @@ const mapping =
 const OFFSET = "!".charCodeAt(0);
 
 module.exports.run = (client, message, args) => {
-  var fs = require("fs");
-
-  fs.readFile("./e/cmds.json", "utf8", function(err, contents) {
-    var c = JSON.parse(contents);
-    if (c.other === "0") {
-      message.channel.send();
-    } else {
-      cc();
-    }
-  });
-  function cc() {
     if (args.length < 1)
       return message.channel.send("You must provide text to flip!");
 
@@ -28,7 +17,6 @@ module.exports.run = (client, message, args) => {
         .join("")
     );
     message.delete();
-  }
 };
 
 module.exports = {

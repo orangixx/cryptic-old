@@ -1,16 +1,6 @@
 const Discord = require("discord.js");
 module.exports.run = (client, message, args, tools) => {
   var fs = require("fs");
-
-  fs.readFile("./e/cmds.json", "utf8", function(err, contents) {
-    var c = JSON.parse(contents);
-    if (c.other === "0") {
-      message.channel.send();
-    } else {
-      cc();
-    }
-  });
-  function cc() {
     if (!args[0]) {
       const buyEmb = new Discord.MessageEmbed()
         .setColor("BLUE")
@@ -46,7 +36,6 @@ module.exports.run = (client, message, args, tools) => {
       )
       .setImage("https://data.whicdn.com/images/29808733/original.gif");
     message.channel.send({ embed: buyEmb });
-  }
 };
 
 module.exports = {

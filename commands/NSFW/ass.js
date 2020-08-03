@@ -5,17 +5,6 @@ module.exports = {
   category: "nsfw",
   run: async (client, message, args) => {
   let disabled = 0;
-  var fs = require("fs");
-
-  fs.readFile("./e/cmds.json", "utf8", function(err, contents) {
-    var c = JSON.parse(contents);
-    if (c.nsfw === "0") {
-      message.channel.send();
-    } else {
-      cc();
-    }
-  });
-  function cc() {
     /*if (!args[0]) return message.reply("Mention someone to fuck!");*/
 
     const notnsfw = new Discord.MessageEmbed()
@@ -85,6 +74,5 @@ module.exports = {
     } else {
       message.channel.send(notnsfw);
     }
-  }
 }
 }

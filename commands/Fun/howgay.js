@@ -9,15 +9,6 @@ module.exports.run = async (client, message, args, default_prefix) => {
     message.reply("Mention a user to see how gay they are!");
     return;
   }
-  fs.readFile("./e/cmds.json", "utf8", function(err, contents) {
-    var c = JSON.parse(contents);
-    if (c.fun === "0") {
-      message.channel.send();
-    } else {
-      cc();
-    }
-  });
-  function cc() {
     let gay = Math.round(Math.random() * 100);
     let taggedUser = message.mentions.users.first() || message.author;
 
@@ -29,7 +20,6 @@ module.exports.run = async (client, message, args, default_prefix) => {
         } is ${gay}% gay!** :gay_pride_flag:`
       );
     return message.channel.send(gayembed);
-  }
 };
 
 module.exports = {

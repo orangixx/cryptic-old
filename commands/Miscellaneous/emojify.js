@@ -22,17 +22,6 @@ const mapping = {
 
 module.exports.run = async (client, message, args, level) => {
   // eslint-disable-line no-unused-vars
-  var fs = require("fs");
-
-  fs.readFile("./e/cmds.json", "utf8", function(err, contents) {
-    var c = JSON.parse(contents);
-    if (c.other === "0") {
-      message.channel.send();
-    } else {
-      cc();
-    }
-  });
-  function cc() {
     if (args.length < 1) {
       message.channel.send("You must provide some text to emojify!");
     }
@@ -44,7 +33,6 @@ module.exports.run = async (client, message, args, level) => {
         .map(c => mapping[c] || c)
         .join("")
     );
-  }
 };
 
 module.exports = {

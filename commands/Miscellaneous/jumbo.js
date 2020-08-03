@@ -1,16 +1,6 @@
 exports.run = function(client, message, args) {
   let disabled = 0;
   var fs = require("fs");
-
-  fs.readFile("./e/cmds.json", "utf8", function(err, contents) {
-    var c = JSON.parse(contents);
-    if (c.other === "0") {
-      message.channel.send();
-    } else {
-      cc();
-    }
-  });
-  function cc() {
     if (args.length < 1) {
       throw "Please provide an emoji to enlarge.";
     }
@@ -41,5 +31,4 @@ exports.run = function(client, message, args) {
     usage: "c!jumbo <emoji>",
     description: "Enlarges emojis!",
     category: "miscellaneous"
-  };
 };

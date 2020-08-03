@@ -42,16 +42,6 @@ exports.run = async (client, message, args1) => {
     "https://media1.giphy.com/media/aKtApzd6XeN44/200w.webp?cid=ecf05e473954be93bea354eea4c71147982403f0739837c1&rid=200w.webp"
   ];
   var fs = require("fs");
-
-  fs.readFile("./e/cmds.json", "utf8", function(err, contents) {
-    var c = JSON.parse(contents);
-    if (c.fun === "0") {
-      message.channel.send();
-    } else {
-      cc();
-    }
-  });
-  function cc() {
     let gif = replys[Math.floor(Math.random() * replys.length)];
     var embed = new Discord.MessageEmbed()
       .setAuthor(message.author.tag, message.author.avatarURL)
@@ -60,7 +50,6 @@ exports.run = async (client, message, args1) => {
 
     message.channel.send(embed);
     console.log("Trump gif succesfully sent!");
-  }
 };
 
 module.exports = {
