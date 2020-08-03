@@ -3,17 +3,6 @@ module.exports = {
   name: "8ball",
   category: "fun",
   run: async (client, message, args) => {
-  var fs = require("fs");
-
-  fs.readFile("./e/cmds.json", "utf8", function(err, contents) {
-    var c = JSON.parse(contents);
-    if (c.fun === "0") {
-      message.channel.send("Error: Command disabled");
-    } else {
-      cc();
-    }
-  });
-  function cc() {
     if (!args[0]) return message.reply("**Usage:** ``c!8ball [question]``");
     let question = args.slice().join(" ");
     let color = "";
@@ -72,6 +61,5 @@ module.exports = {
     message.channel.send({
       embed: newembed
     });
-  }
 }
 }

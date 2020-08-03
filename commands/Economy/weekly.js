@@ -13,16 +13,6 @@ exports.run = async (client, message, args, config) => {
 
     let weekly = await db.fetch(`weekly_${message.author.id}`);
     var fs = require("fs");
-
-    fs.readFile("./e/cmds.json", "utf8", function(err, contents) {
-      var c = JSON.parse(contents);
-      if (c.economy === "0") {
-        message.channel.send("Error: Command disabled");
-      } else {
-        cc();
-      }
-    });
-    function cc() {
       if (weekly !== null && timeout - (Date.now() - weekly) > 0) {
         let time = ms(timeout - (Date.now() - weekly));
 
@@ -49,7 +39,6 @@ exports.run = async (client, message, args, config) => {
         db.add(`money_${message.author.id}`, amount);
         db.set(`weekly_${message.author.id}`, Date.now());
       }
-    }
   }
 };
 

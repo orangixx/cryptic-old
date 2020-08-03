@@ -1,19 +1,6 @@
 const discord = require("discord.js");
 
 module.exports.run = async (client, message, args) => {
-  var fs = require("fs");
-
-  var fs = require("fs");
-
-  fs.readFile("./e/cmds.json", "utf8", function(err, contents) {
-    var c = JSON.parse(contents);
-    if (c.other === "0") {
-      message.channel.send();
-    } else {
-      cc();
-    }
-  });
-  function cc() {
     let boticon = client.user.displayAvatarURL;
     let embed = new discord.MessageEmbed()
       .setAuthor("Cryptic Invites", message.guild.iconURL)
@@ -26,7 +13,6 @@ module.exports.run = async (client, message, args) => {
       .setTimestamp()
       .setThumbnail(boticon);
     message.channel.send(embed);
-  }
 };
 
 module.exports = {

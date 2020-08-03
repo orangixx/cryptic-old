@@ -1,6 +1,8 @@
-module.exports=(async (message) => {
-	if(!message) return new Error ("missing message parameter");
-	await require(`../../BaseCommand.js`)(message);
+module.exports = {
+	name: "aretheystaff",
+	category: "Bot",
+	aliases: ['ats'],
+	run: async (client, message, args = new Array()) => {
 	
 	// member mention
 	if(message.mentions.members.first()) {
@@ -55,4 +57,5 @@ module.exports=(async (message) => {
 	var m = `They are ${isStaff?"":"Not"} a staff member.\nHere's some permission info:`;
 	message.reply(m);
 	return message.channel.send(pt.toString(),{code:"css"});
-});
+	}
+}

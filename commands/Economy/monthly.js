@@ -9,16 +9,6 @@ exports.run = async (client, message, args, config) => {
 
   let monthly = await db.fetch(`monthly_${message.author.id}`);
   var fs = require("fs");
-
-  fs.readFile("./e/cmds.json", "utf8", function(err, contents) {
-    var c = JSON.parse(contents);
-    if (c.economy === "0") {
-      message.channel.send();
-    } else {
-      cc();
-    }
-  });
-  function cc() {
     if (monthly !== null && timeout - (Date.now() - monthly) > 0) {
       let time = ms(timeout - (Date.now() - monthly));
 
@@ -44,7 +34,6 @@ exports.run = async (client, message, args, config) => {
       db.add(`money_${message.author.id}`, amount);
       db.set(`monthly_${message.author.id}`, Date.now());
     }
-  }
 };
 
 module.exports = {

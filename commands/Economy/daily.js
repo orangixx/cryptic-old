@@ -9,16 +9,6 @@ module.exports.run = async (client, message, args, config) => {
 
   let daily = await db.fetch(`daily_${message.author.id}`);
   var fs = require("fs");
-
-  fs.readFile("./e/cmds.json", "utf8", function(err, contents) {
-    var c = JSON.parse(contents);
-    if (c.economy === "0") {
-      message.channel.send();
-    } else {
-      cc();
-    }
-  });
-  function cc() {
     if (daily !== null && timeout - (Date.now() - daily) > 0) {
       let time = ms(timeout - (Date.now() - daily));
 
@@ -43,7 +33,6 @@ module.exports.run = async (client, message, args, config) => {
       db.add(`money_${message.author.id}`, amount);
       db.set(`daily_${message.author.id}`, Date.now());
     }
-  }
 };
 
 module.exports = {

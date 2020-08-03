@@ -5,16 +5,6 @@ module.exports = {
   category: "bot",
   run: async (client, message, args) => {
   var fs = require("fs");
-
-  fs.readFile("./e/cmds.json", "utf8", function(err, contents) {
-    var c = JSON.parse(contents);
-    if (c.other === "0") {
-      message.channel.send();
-    } else {
-      cc();
-    }
-  });
-  function cc() {
     let owner = client.users.cache.get("405497010385321995");
     let bicon = client.user.displayAvatarURL;
     let botembed = new Discord.MessageEmbed()
@@ -30,5 +20,4 @@ module.exports = {
 
     message.channel.send(botembed);
   }
-}
 }
