@@ -45,5 +45,12 @@ run: async (client, message, args, config) => {
     .setTimestamp();
 
   message.channel.send(embed);
-}
+ }
+};
+
+module.exports = {
+  name: "add-money",
+  aliases: ['addmoney', 'add'],
+  category: "economy",
+  description: 'Adds some money'
 }
