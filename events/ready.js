@@ -13,9 +13,9 @@ module.exports = async client => {
   );
   
   setInterval(function() {
-        let statuses = [`${default_prefix}help | ${client.users.cache.size} users`. `${default_prefix}help | ${client.guilds.cache.size} servers | ${client.users.cache.size} users`, `client.guilds.cache.size} servers | ${default_prefix}help`]
+        let statuses = [`${default_prefix}help | ${client.users.cache.size} users`, `${default_prefix}help | ${client.guilds.cache.size} servers | ${client.users.cache.size} users`, `client.guilds.cache.size} servers | ${default_prefix}help`]
         let status = statuses[Math.floor(Math.random() * statuses.length)];
-        bot.user.setActivity(status, {type: "WATCHING"});
+        client.user.setActivity(status, {type: "WATCHING"});
 
     }, 8000)
 };
