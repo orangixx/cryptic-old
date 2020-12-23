@@ -66,7 +66,7 @@
     "utf-8-validate": "^5.0.2",
     "util": "^0.12.3",
     "weather-js": "^2.0.0",
-    "ytdl-core": "^3.1.1",
+    "ytdl-core": "^4.2.1",
     "ytdl-core-discord": "^1.2.0",
     "zlib-sync": "^0.1.7"
   },
