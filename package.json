@@ -67,7 +67,7 @@
     "util": "^0.12.3",
     "weather-js": "^2.0.0",
     "ytdl-core": "^4.2.1",
-    "ytdl-core-discord": "^1.2.0",
+    "ytdl-core-discord": "^1.2.5",
     "zlib-sync": "^0.1.7"
   },
   "engines": {
