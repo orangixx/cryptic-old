@@ -18,7 +18,7 @@
     "common-tags": "^1.8.0",
     "cpu-stat": "^2.0.1",
     "dateformat": "^3.0.3",
-    "dblapi.js": "^2.4.0",
+    "dblapi.js": "^2.4.1",
     "discord-backup": "^2.1.17",
     "discord-logs": "^1.7.5",
     "discord.js": "^12.5.1",
